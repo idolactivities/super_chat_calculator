@@ -58,6 +58,8 @@ def extract_superchat(json_data):
                 if supporter not in all:
                     all[supporter] = money
                 else:
+                    if currency not in all[supporter]:
+                        all[supporter][currency] = 0
                     all[supporter][currency] += money[currency]
             else:
                 print("### SKIP DUPLICATED ###", time, supporter, amount)
@@ -105,5 +107,3 @@ while True:
 
 
 print(currencies)
-
-
